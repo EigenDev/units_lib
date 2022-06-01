@@ -2,6 +2,7 @@
 *.d
 
 units
+.vscode/
 
 # Compiled Object files
 *.slo

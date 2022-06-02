@@ -1398,76 +1398,66 @@ namespace units
         P value;
     };
 
-    // Typesafe trigonometric operations
-    // inline double sin(const Angle &num)
-    // {
-    //     return sin(num.value);
-    // }
-    // inline double cos(const Angle &num)
-    // {
-    //     return cos(num.value);
-    // }
-    // inline double tan(const Angle &num)
-    // {
-    //     return tan(num.value);
-    // }
-    template<
-    typename power,
-    typename P, 
-    typename m, 
-    typename l, 
-    typename t, 
-    typename q, 
-    typename temp, 
-    typename intensity, 
-    typename angle,
-    Mass_t M         = Mass_t::Gram,               // Mass unit type
-    Length_t L       = Length_t::Centimeter,       // Length unit type
-    Time_t T         = Time_t::Second,             // Time unit type
-    Charge_t Q       = Charge_t::StatCoulomb,      // Charge unit type
-    Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
-    Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
-    Angle_t A        = Angle_t::Radian>            // Angle unit type
-    const auto pow(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& quant)
+    namespace math
     {
-        const P vpower = P(power::num) / power::den;
-        return  quantity<P, std::ratio_multiply<m, power>, 
-                            std::ratio_multiply<l, power>, 
-                            std::ratio_multiply<t, power>,
-                            std::ratio_multiply<q, power>,
-                            std::ratio_multiply<temp, power>,
-                            std::ratio_multiply<intensity, power>,
-                            std::ratio_multiply<angle, power>,
-                            M, L, T, Q, K, I, A>(std::pow(quant.value, vpower));
-    }
+        template<
+        typename power,
+        typename P, 
+        typename m, 
+        typename l, 
+        typename t, 
+        typename q, 
+        typename temp, 
+        typename intensity, 
+        typename angle,
+        Mass_t M         = Mass_t::Gram,               // Mass unit type
+        Length_t L       = Length_t::Centimeter,       // Length unit type
+        Time_t T         = Time_t::Second,             // Time unit type
+        Charge_t Q       = Charge_t::StatCoulomb,      // Charge unit type
+        Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
+        Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
+        Angle_t A        = Angle_t::Radian>            // Angle unit type
+        const auto pow(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& quant)
+        {
+            const P vpower = P(power::num) / power::den;
+            return  quantity<P, std::ratio_multiply<m, power>, 
+                                std::ratio_multiply<l, power>, 
+                                std::ratio_multiply<t, power>,
+                                std::ratio_multiply<q, power>,
+                                std::ratio_multiply<temp, power>,
+                                std::ratio_multiply<intensity, power>,
+                                std::ratio_multiply<angle, power>,
+                                M, L, T, Q, K, I, A>(std::pow(quant.value, vpower));
+        }
 
-    template<
-    typename P, 
-    typename m, 
-    typename l, 
-    typename t, 
-    typename q, 
-    typename temp, 
-    typename intensity, 
-    typename angle,
-    Mass_t M         = Mass_t::Gram,               // Mass unit type
-    Length_t L       = Length_t::Centimeter,       // Length unit type
-    Time_t T         = Time_t::Second,             // Time unit type
-    Charge_t Q       = Charge_t::StatCoulomb,      // Charge unit type
-    Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
-    Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
-    Angle_t A        = Angle_t::Radian>            // Angle unit type
-    const auto sqrt(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& val)
-    {
-        return  quantity<P, std::ratio_divide<m, std::ratio<2>>, 
-                            std::ratio_divide<l, std::ratio<2>>, 
-                            std::ratio_divide<t, std::ratio<2>>,
-                            std::ratio_divide<q, std::ratio<2>>,
-                            std::ratio_divide<temp, std::ratio<2>>,
-                            std::ratio_divide<intensity, std::ratio<2>>,
-                            std::ratio_divide<angle, std::ratio<2>>,
-                            M, L, T, Q, K, I, A>( std::sqrt(val.value) );
-    }
+        template<
+        typename P, 
+        typename m, 
+        typename l, 
+        typename t, 
+        typename q, 
+        typename temp, 
+        typename intensity, 
+        typename angle,
+        Mass_t M         = Mass_t::Gram,               // Mass unit type
+        Length_t L       = Length_t::Centimeter,       // Length unit type
+        Time_t T         = Time_t::Second,             // Time unit type
+        Charge_t Q       = Charge_t::StatCoulomb,      // Charge unit type
+        Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
+        Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
+        Angle_t A        = Angle_t::Radian>            // Angle unit type
+        const auto sqrt(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& val)
+        {
+            return  quantity<P, std::ratio_divide<m, std::ratio<2>>, 
+                                std::ratio_divide<l, std::ratio<2>>, 
+                                std::ratio_divide<t, std::ratio<2>>,
+                                std::ratio_divide<q, std::ratio<2>>,
+                                std::ratio_divide<temp, std::ratio<2>>,
+                                std::ratio_divide<intensity, std::ratio<2>>,
+                                std::ratio_divide<angle, std::ratio<2>>,
+                                M, L, T, Q, K, I, A>( std::sqrt(val.value) );
+        }
+    } // namespace math
 
     // define the physical units
     // Base units

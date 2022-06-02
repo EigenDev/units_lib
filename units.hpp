@@ -1483,6 +1483,7 @@ namespace units
     using charge        = quantity<double, std::ratio<1,2>, std::ratio<3,2>, std::ratio<-1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using edens         = quantity<double, std::ratio<1>, std::ratio<-1>, std::ratio<-2>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using mdens         = quantity<double, std::ratio<1>, std::ratio<-3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
+    using ndens         = quantity<double, std::ratio<0>, std::ratio<-3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
 
     // define the base in cgs
     constexpr mass          gram(1);   // gram
@@ -1501,7 +1502,8 @@ namespace units
     constexpr edens         erg_per_cm3(1);
     constexpr mdens         g_per_cm3(1);
     constexpr power         erg_per_s(1);
-
+    constexpr ndens         n_per_cm3(1);
+    
     // // define derived conversion types
     constexpr auto kg    = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, Mass_t::Kilogram>(1);
     constexpr auto mSun  = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, Mass_t::SolarMass>(1);

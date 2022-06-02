@@ -49,13 +49,13 @@ namespace units
         SolarMass,
     };
 
-    template<class P = double>
+    template<typename P = double>
     class Kilogram;
 
-    template<class P = double>
+    template<typename P = double>
     class SolarMass;
 
-    template<class P = double>
+    template<typename P = double>
     class Gram
     {
         public:
@@ -65,14 +65,14 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& os, const Gram<P>& mass)
     {
         os << mass.value << " [g]";
         return os;
     }
 
-    template<class P>
+    template<typename P>
     class SolarMass
     {
         public:
@@ -82,14 +82,14 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& os, const SolarMass<P>& mass)
     {
         os << mass.value << " [M_sun]";
         return os;
     }
 
-    template<class P>
+    template<typename P>
     class Kilogram
     {
         public:
@@ -99,7 +99,7 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& os, const Kilogram<P>& mass)
     {
         os << mass.value << " [kg]";
@@ -134,16 +134,16 @@ namespace units
     //=======================================
     // Time type specializations
     //=======================================
-    template<class P = double>
+    template<typename P = double>
     class Year;
 
-    template<class P = double>
+    template<typename P = double>
     class Day;
 
-    template<class P = double>
+    template<typename P = double>
     class Hour;
 
-    template<class P = double>
+    template<typename P = double>
     class Second
     {
         public:
@@ -154,14 +154,14 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& os, const Second<P>& t)
     {
         os << t.value << " [s]";
         return os;
     }
 
-    template<class P>
+    template<typename P>
     class Year
     {
         public:
@@ -172,14 +172,14 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& out, const Year<P>& t)
     {
         out << t.value << " [yr]";
         return out;
     }
 
-    template<class P>
+    template<typename P>
     class Day
     {
         public:
@@ -190,25 +190,25 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& out, const Day<P>& t)
     {
         out << t.value << " [day]";
         return out;
     }
 
-    template<class P>
+    template<typename P>
     class Hour
     {
         public:
         Hour(const P initVal) : value(initVal){}
         Hour(Year<P> t) : value(31556952.0 * t.value) {}
         Hour(Day<P> t) : value(24.0 * t.value) {}
-        Hour(Second<P> t) : value(t.value * (1.0 / 60.0)) {}
+        Hour(Second<P> t) : value(t.value * (1.0 / 3600.0)) {}
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& out, const Hour<P>& t)
     {
         out << t.value << " [hr]";
@@ -255,19 +255,19 @@ namespace units
     //=======================================
     // Length type specializations
     //=======================================
-    template<class P = double>
+    template<typename P = double>
     class Parsec;
 
-    template<class P = double>
+    template<typename P = double>
     class Lightyear;
 
-    template<class P = double>
+    template<typename P = double>
     class Kilometer;
 
-    template<class P = double>
+    template<typename P = double>
     class Meter;
 
-    template<class P = double>
+    template<typename P = double>
     class Centimeter
     {
         public:
@@ -279,14 +279,14 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& out, const Centimeter<P>& ell)
     {
         out << ell.value << " [cm]";
         return out;
     }
 
-    template<class P>
+    template<typename P>
     class Meter
     {
         public:
@@ -298,14 +298,14 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& out, const Meter<P>& ell)
     {
         out << ell.value << " [m]";
         return out;
     }
 
-    template<class P>
+    template<typename P>
     class Kilometer
     {
         public:
@@ -317,14 +317,14 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& out, const Kilometer<P>& ell)
     {
         out << ell.value << " [km]";
         return out;
     }
     
-    template<class P>
+    template<typename P>
     class Lightyear
     {
         public:
@@ -336,13 +336,13 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& out, const Lightyear<P>& ell)
     {
         out << ell.value << " [ly]";
         return out;
     }
-    template<class P>
+    template<typename P>
     class Parsec
     {
         public:
@@ -354,7 +354,7 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& out, const Parsec<P>& ell)
     {
         out << ell.value << " [pc]";
@@ -402,10 +402,10 @@ namespace units
     //=======================================
     // Charge type specializations
     //=======================================
-    template<class P = double>
+    template<typename P = double>
     class Coulomb;
 
-    template<class P = double>
+    template<typename P = double>
     class StatCoulomb
     {
         public:
@@ -414,14 +414,14 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& out, const StatCoulomb<P>& ell)
     {
         out << ell.value << " [statC]";
         return out;
     }
 
-    template<class P>
+    template<typename P>
     class Coulomb
     {
         public:
@@ -430,7 +430,7 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& out, const Coulomb<P>& ell)
     {
         out << ell.value << " [C]";
@@ -463,16 +463,16 @@ namespace units
     //=======================================
     // Temperature type specializations
     //=======================================
-    template<class P = double>
+    template<typename P = double>
     class Celcius;
 
-    template<class P = double>
+    template<typename P = double>
     class Fahrenheit;
 
-    template<class P = double>
+    template<typename P = double>
     class ElectronVolt;
 
-    template<class P = double>
+    template<typename P = double>
     class Kelvin
     {
         public:
@@ -483,14 +483,14 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& out, const Kelvin<P>& ell)
     {
         out << ell.value << " [K]";
         return out;
     }
 
-    template<class P>
+    template<typename P>
     class Fahrenheit
     {
         public:
@@ -501,14 +501,14 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& out, const Fahrenheit<P>& ell)
     {
         out << ell.value << " [Fah]";
         return out;
     }
 
-    template<class P>
+    template<typename P>
     class Celcius
     {
         public:
@@ -520,14 +520,14 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& out, const Celcius<P>& ell)
     {
         out << ell.value << " [Cel]";
         return out;
     }
 
-    template<class P>
+    template<typename P>
     class ElectronVolt
     {
         public:
@@ -538,7 +538,7 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& out, const ElectronVolt<P>& ell)
     {
         out << ell.value << " [eV]";
@@ -585,7 +585,7 @@ namespace units
     // Irradiance type specializations
     //=======================================
     // Erg per square meter per second
-    template<class P = double>
+    template<typename P = double>
     class ErgCM2P2{};
 
     enum class Irradiance_t{
@@ -594,10 +594,10 @@ namespace units
     //=======================================
     // Angle type specializations
     //=======================================
-    template<class P = double>
+    template<typename P = double>
     class Degree;
 
-    template<class P = double>
+    template<typename P = double>
     class Radian
     {
         public:
@@ -606,14 +606,14 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& out, const Radian<P>& ell)
     {
         out << ell.value << " [rad]";
         return out;
     }
 
-    template<class P>
+    template<typename P>
     class Degree
     {
         public:
@@ -622,7 +622,7 @@ namespace units
         P value;
     };
 
-    template<class P>
+    template<typename P>
     std::ostream& operator<<(std::ostream& out, const Degree<P>& ell)
     {
         out << ell.value << " [deg]";
@@ -716,7 +716,7 @@ namespace units
     performing physics calculation
     */
     template<
-    class P,               // Precision
+    typename P,               // Precision
     typename m = int,               // power of mass
     typename l = int,               // power of length
     typename t = int,               // power of time
@@ -1078,7 +1078,7 @@ namespace units
 
     //=============================================================================================
     template<
-    class P,           // Precision
+    typename P,           // Precision
     typename m,             // power of mass
     typename l,             // power of length
     typename t,             // power of time
@@ -1218,7 +1218,7 @@ namespace units
 
     // "Non-assignment operators are best implemented as non-members"
     template<
-    class P,
+    typename P,
     typename m, 
     typename l, 
     typename t, 
@@ -1242,7 +1242,7 @@ namespace units
     }
 
     template<
-    class P, 
+    typename P, 
     typename m, 
     typename l, 
     typename t, 
@@ -1266,7 +1266,7 @@ namespace units
     }
 
     template<
-    class P, 
+    typename P, 
     typename m, 
     typename l, 
     typename t, 
@@ -1281,7 +1281,7 @@ namespace units
     Temperature_t K = Temperature_t::Kelvin,  // Temperature unit type
     Irradiance_t I = Irradiance_t::ErgCM2P2,  // Luminous Intensity unit type
     Angle_t A = Angle_t::Radian>             // Angle unit type
-    const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>
+    const auto
     operator*(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& lhs, double rhs)
     {
         quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A> result(lhs);
@@ -1289,7 +1289,7 @@ namespace units
     }
 
     template<
-    class P, 
+    typename P, 
     typename m1, typename l1, typename t1, typename q1, typename temp1, typename intensity1, typename angle1,
     typename m2, typename l2, typename t2, typename q2, typename temp2, typename intensity2, typename angle2,
     Mass_t M         = Mass_t::Gram,               // Mass unit type
@@ -1307,9 +1307,9 @@ namespace units
     std::ratio_add<temp1,temp2>, 
     std::ratio_add<intensity1,intensity2>, 
     std::ratio_add<angle1,angle2>, 
-    M, L, T, Q, K, I, A>
+    M, L, T, Q, K, I, A> 
     operator*(const quantity<P, m1, l1, t1, q1, temp1, intensity1, angle1,M, L, T, Q, K, I, A>& lhs,
-    const quantity<P, m2, l2, t2, q2, temp2, intensity2, angle2, M, L, T, Q, K, I, A>& rhs)
+              const quantity<P, m2, l2, t2, q2, temp2, intensity2, angle2, M, L, T, Q, K, I, A>& rhs)
     {
         typedef quantity<P, 
         std::ratio_add<m1,m2>, 
@@ -1324,7 +1324,7 @@ namespace units
     }
 
     template<
-    class P, 
+    typename P, 
     typename m1, typename l1, typename t1, typename q1, typename temp1, typename intensity1, typename angle1,
     typename m2, typename l2, typename t2, typename q2, typename temp2, typename intensity2, typename angle2,
     Mass_t M         = Mass_t::Gram,               // Mass unit type
@@ -1344,7 +1344,7 @@ namespace units
     std::ratio_subtract<angle1,angle2>, 
     M, L, T, Q, K, I, A>
     operator/(const quantity<P, m1, l1, t1, q1, temp1, intensity1, angle1, M, L, T, Q, K, I, A>& lhs,
-    const quantity<P, m2, l2, t2, q2, temp2, intensity2, angle2, M, L, T, Q, K, I, A>& rhs)
+              const quantity<P, m2, l2, t2, q2, temp2, intensity2, angle2, M, L, T, Q, K, I, A>& rhs)
     {
         typedef quantity<P, 
         std::ratio_subtract<m1,m2>,
@@ -1359,24 +1359,15 @@ namespace units
     }
 
     template<
-    class P, 
+    typename P, 
     typename m1, typename l1, typename t1, typename q1, typename temp1, typename intensity1, typename angle1,
     typename m2, typename l2, typename t2, typename q2, typename temp2, typename intensity2, typename angle2,
     Mass_t M1, Mass_t M2, Length_t L1, Length_t L2,       
     Time_t T1, Time_t T2, Charge_t Q1,Charge_t Q2,       
     Temperature_t K1, Temperature_t K2, Irradiance_t I1, Irradiance_t I2,
     Angle_t A1, Angle_t A2>              
-    quantity<P, 
-    std::ratio_subtract<m1,m2>,
-    std::ratio_subtract<l1,l2>,
-    std::ratio_subtract<t1,t2>, 
-    std::ratio_subtract<q1,q2>,
-    std::ratio_subtract<temp1,temp2>, 
-    std::ratio_subtract<intensity1,intensity2>, 
-    std::ratio_subtract<angle1,angle2>, 
-    M1, L1, T1, Q1, K1, I1, A1>
-    operator/(const quantity<P, m1, l1, t1, q1, temp1, intensity1, angle1, M1, L1, T1, Q1, K1, I1, A1>& lhs,
-    const quantity<P, m2, l2, t2, q2, temp2, intensity2, angle2, M2, L2, T2, Q2, K2, I2, A2>& rhs)
+    const auto operator/(const quantity<P, m1, l1, t1, q1, temp1, intensity1, angle1, M1, L1, T1, Q1, K1, I1, A1>& lhs,
+                         const quantity<P, m2, l2, t2, q2, temp2, intensity2, angle2, M2, L2, T2, Q2, K2, I2, A2>& rhs)
     {
         const Mass_t new_mType           = (M1 > M2) ? M1 : M2;
         const Length_t new_lType         = (L1 > L2) ? L1 : L2;
@@ -1386,7 +1377,7 @@ namespace units
         const Angle_t new_aType          = (A1 > A2) ? A1 : A2;
         const Charge_t new_qType         = (Q1 > Q2) ? Q1 : Q2;
 
-        typedef quantity<P, 
+        return quantity<P, 
                 std::ratio_subtract<m1,m2>,
                 std::ratio_subtract<l1,l2>,
                 std::ratio_subtract<t1,t2>, 
@@ -1394,9 +1385,7 @@ namespace units
                 std::ratio_subtract<temp1,temp2>, 
                 std::ratio_subtract<intensity1,intensity2>, 
                 std::ratio_subtract<angle1,angle2>,
-                new_mType, new_lType, new_tType, new_qType, new_tempType, new_radType, new_aType> ResultType;
-
-        return ResultType(lhs.value / rhs.value);
+                new_mType, new_lType, new_tType, new_qType, new_tempType, new_radType, new_aType>(lhs.value / rhs.value);
     }
 
     // // Special case for dimensionless type 
@@ -1422,36 +1411,38 @@ namespace units
     // {
     //     return tan(num.value);
     // }
-    // template<
-    // class P, 
-    // typename m, 
-    // typename l, 
-    // typename t, 
-    // typename q, 
-    // typename temp, 
-    // typename intensity, 
-    // typename angle,
-    // Mass_t M         = Mass_t::Gram,               // Mass unit type
-    // Length_t L       = Length_t::Centimeter,       // Length unit type
-    // Time_t T         = Time_t::Second,             // Time unit type
-    // Charge_t Q       = Charge_t::StatCoulomb,      // Charge unit type
-    // Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
-    // Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
-    // Angle_t A        = Angle_t::Radian>            // Angle unit type
-    // const auto pow(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& rhs, const int num = 1, const int den = 1)
-    // {
-    //     return  quantity<P, std::ratio_divide<m, std::ratio<num, den>>, 
-    //                         std::ratio_divide<l, std::ratio<num, den>>, 
-    //                         std::ratio_divide<t, std::ratio<num, den>>,
-    //                         std::ratio_divide<q, std::ratio<num, den>>,
-    //                         std::ratio_divide<temp, std::ratio<num, den>>,
-    //                         std::ratio_divide<intensity, std::ratio<num, den>>,
-    //                         std::ratio_divide<angle, std::ratio<num, den>>,
-    //                         M, L, T, Q, K, I, A>( std::sqrt(val.value) );
-    // }
+    template<
+    typename power,
+    typename P, 
+    typename m, 
+    typename l, 
+    typename t, 
+    typename q, 
+    typename temp, 
+    typename intensity, 
+    typename angle,
+    Mass_t M         = Mass_t::Gram,               // Mass unit type
+    Length_t L       = Length_t::Centimeter,       // Length unit type
+    Time_t T         = Time_t::Second,             // Time unit type
+    Charge_t Q       = Charge_t::StatCoulomb,      // Charge unit type
+    Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
+    Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
+    Angle_t A        = Angle_t::Radian>            // Angle unit type
+    const auto pow(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& quant)
+    {
+        const P vpower = P(power::num) / power::den;
+        return  quantity<P, std::ratio_multiply<m, power>, 
+                            std::ratio_multiply<l, power>, 
+                            std::ratio_multiply<t, power>,
+                            std::ratio_multiply<q, power>,
+                            std::ratio_multiply<temp, power>,
+                            std::ratio_multiply<intensity, power>,
+                            std::ratio_multiply<angle, power>,
+                            M, L, T, Q, K, I, A>(std::pow(quant.value, vpower));
+    }
 
     template<
-    class P, 
+    typename P, 
     typename m, 
     typename l, 
     typename t, 

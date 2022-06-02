@@ -1302,6 +1302,28 @@ namespace units
 
     template<
     typename P, 
+    typename m, 
+    typename l, 
+    typename t, 
+    typename q, 
+    typename temp, 
+    typename intensity, 
+    typename angle,
+    Mass_t M = Mass_t::Gram,                  // Mass unit type
+    Length_t L = Length_t::Centimeter,        // Length unit type
+    Time_t T = Time_t::Second,                // Time unit type
+    Charge_t Q = Charge_t::StatCoulomb,       // Charge unit type
+    Temperature_t K = Temperature_t::Kelvin,  // Temperature unit type
+    Irradiance_t I = Irradiance_t::ErgCM2P2,  // Luminous Intensity unit type
+    Angle_t A = Angle_t::Radian>             // Angle unit type
+    const auto
+    operator/(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& lhs, double rhs)
+    {
+        return quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>(lhs.value / rhs);
+    }
+
+    template<
+    typename P, 
     typename m1, typename l1, typename t1, typename q1, typename temp1, typename intensity1, typename angle1,
     typename m2, typename l2, typename t2, typename q2, typename temp2, typename intensity2, typename angle2,
     Mass_t M         = Mass_t::Gram,               // Mass unit type

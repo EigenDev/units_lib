@@ -815,7 +815,7 @@ namespace units
                 (aType == uTransform.aType)
             )
             {
-                return uTransform;
+                return quantity<P, m, l, t, q, temp, intensity, angle, M2, L2, T2, Q2, K2, I2, A2>(uTransform.value * value);
             } 
             
             // if constexpr(std::is_integral_v<m>)
@@ -1049,7 +1049,7 @@ namespace units
                     }
                 }
 
-                return newQuant(newvalue);
+                return newQuant(newvalue * uTransform.value);
             }
             }
 
@@ -1558,7 +1558,7 @@ namespace units
     using energy        = quantity<double, std::ratio<1>, std::ratio<2>, std::ratio<-2>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using frequency     = quantity<double, std::ratio<0>, std::ratio<0>, std::ratio<-1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using force         = quantity<double, std::ratio<1>, std::ratio<1>, std::ratio<-2>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
-    using spectral_flux = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<-4>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
+    using spectral_flux = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<-2>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using total_flux    = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<-3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using power         = quantity<double, std::ratio<1>, std::ratio<2>,std::ratio<-3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using volume        = quantity<double, std::ratio<0>, std::ratio<3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
@@ -1572,25 +1572,26 @@ namespace units
     using emissivity    = quantity<double, std::ratio<1>, std::ratio<-1>, std::ratio<-2>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
 
     // define some commaon cgs units
-    constexpr mass          gram(1);   // gram
-    constexpr length        cm(1);     // centimeter
-    constexpr mytime        s(1);      // second
-    constexpr charge        statC(1);  // statColoumb
-    constexpr temp          kelvin(1); // Kelvin
-    constexpr angle         rad(1);    // radians 
-    constexpr energy        erg(1);    // erg
-    constexpr frequency     hz(1);     // Hertz
-    constexpr force         dyne(1);   // dyne
-    constexpr spectral_flux jy(1);     // Jansky
-    constexpr volume        cm3(1);
-    constexpr area          cm2(1);
-    constexpr mag_field     gauss(1);
-    constexpr edens         erg_per_cm3(1);
-    constexpr mdens         g_per_cm3(1);
-    constexpr power         erg_per_s(1);
-    constexpr ndens         n_per_cm3(1);
-    constexpr spec_power    power_per_hz(1);
-    constexpr emissivity    power_per_hz_per_cm3(1);
+    constexpr mass          gram(1);                   // gram
+    constexpr length        cm(1);                     // centimeter
+    constexpr mytime        s(1);                      // second
+    constexpr charge        statC(1);                  // statColoumb
+    constexpr temp          kelvin(1);                 // Kelvin
+    constexpr angle         rad(1);                    // radians 
+    constexpr energy        erg(1);                    // erg
+    constexpr frequency     hz(1);                     // Hertz
+    constexpr force         dyne(1);                   // dyne
+    constexpr spectral_flux jy(1e-23);                 // Jansky
+    constexpr spectral_flux mjy(1e-20);               // millJansky
+    constexpr volume        cm3(1);                    // centimeters cubed
+    constexpr area          cm2(1);                    // centimeters squared
+    constexpr mag_field     gauss(1);                  // Gauss units
+    constexpr edens         erg_per_cm3(1);            // erg per centimer cubed
+    constexpr mdens         g_per_cm3(1);              // gram per centimer cubed
+    constexpr power         erg_per_s(1);              // erg per second
+    constexpr ndens         n_per_cm3(1);              // number of particles per centimer cubed
+    constexpr spec_power    power_per_hz(1);           // erg per second squared
+    constexpr emissivity    power_per_hz_per_cm3(1);   // erg per second squared per centimer cubed
 
     // // define derived conversion types
     constexpr auto kg    = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, Mass_t::Kilogram>(1);

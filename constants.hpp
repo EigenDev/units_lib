@@ -26,6 +26,7 @@ namespace constants
     const auto sigmaB   = 5.67051e-5     * units::erg / units::cm2 / (units::math::pow<std::ratio<4>>(units::kelvin));;
     const auto alpha    = 7.29735308e-3;
     const auto rydB     = 2.1798741e-11  * units::erg;
+    const auto sigmaT   = 6.6524e-25     * units::cm2;
 } // namespace constants
 
 #endif

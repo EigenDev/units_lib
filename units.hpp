@@ -1482,6 +1482,7 @@ namespace units
     using mag_field     = quantity<double, std::ratio<1,2>, std::ratio<-1,2>, std::ratio<-1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using charge        = quantity<double, std::ratio<1,2>, std::ratio<3,2>, std::ratio<-1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using edens         = quantity<double, std::ratio<1>, std::ratio<-1>, std::ratio<-2>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
+    using mdens         = quantity<double, std::ratio<1>, std::ratio<-3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
 
     // define the base in cgs
     constexpr mass          gram(1);   // gram
@@ -1498,6 +1499,7 @@ namespace units
     constexpr area          cm2(1);
     constexpr mag_field     gauss(1);
     constexpr edens         erg_per_cm3(1);
+    constexpr mdens         g_per_cm3(1);
 
     // // define derived conversion types
     constexpr auto kg    = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, Mass_t::Kilogram>(1);

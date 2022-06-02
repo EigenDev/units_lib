@@ -1569,7 +1569,7 @@ namespace units
     using mdens         = quantity<double, std::ratio<1>, std::ratio<-3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using ndens         = quantity<double, std::ratio<0>, std::ratio<-3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using spec_power    = quantity<double, std::ratio<1>, std::ratio<2>, std::ratio<-2>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
-    using emissivity    = quantity<double, std::ratio<1>, std::ratio<-1>, std::ratio<-2>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
+    using emissivity    = quantity<double, std::ratio<1>, std::ratio<-1>, std::ratio<-3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
 
     // define some commaon cgs units
     constexpr mass          gram(1);   // gram

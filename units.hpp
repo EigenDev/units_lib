@@ -1500,6 +1500,7 @@ namespace units
     constexpr mag_field     gauss(1);
     constexpr edens         erg_per_cm3(1);
     constexpr mdens         g_per_cm3(1);
+    constexpr power         erg_per_s(1);
 
     // // define derived conversion types
     constexpr auto kg    = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, Mass_t::Kilogram>(1);

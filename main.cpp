@@ -30,11 +30,14 @@ int main()
 
     const auto a2 = a * a;
     const auto nv = v.to(units::km / units::s);
+    const auto na = a.to(units::km / units::s / units::s);
     std::cout << std::string(80, '=') << "\n";
-    std::cout << "velocity: " << v  << "\n";
+    std::cout << "velocity in cgs: " << v  << "\n";
     std::cout << "acceleration: " << a  << "\n";
-    std::cout << "new speed:" << nv << "\n";
-    std::cout << "Sqrt of squared acceleration: " << sqrt(a2) << "\n";
+    std::cout << "velocity in kms:" << nv << "\n";
+    std::cout << "acceleration in kms:" << na << "\n";
+    std::cout << "Sqrt of squared acceleratio using sqrt: " << sqrt(a2) << "\n";
+    std::cout << "Sqrt of squared acceleratio using pow: "  <<  units::pow<std::ratio<1,3>>(a2) << "\n";
     
     // Constants testing
     std::cout << std::string(80, '=') << "\n";
@@ -51,11 +54,10 @@ int main()
     std::cout << "Atomic mass unit: "             <<  constants::amu      << "\n";
     std::cout << "Avagadro's number: "            <<  constants::nA       << "\n";
     std::cout << "Boltzmann constant: "           <<  constants::kB       << "\n";
-    std::cout << "eV to ergs conversion: "          <<  constants::eV2erg   << "\n";
+    std::cout << "eV to ergs conversion: "        <<  constants::eV2erg   << "\n";
     std::cout << "Radiation density constant a: " <<  constants::aRad     << "\n";
     std::cout << "Stefan-Boltzmann constant: "    <<  constants::sigmaB   << "\n";
     std::cout << "Fine structure constant: "      <<  constants::alpha    << "\n";
     std::cout << "The Rydberg constant: "         <<  constants::rydB     << "\n";
-
     return 0;
 }

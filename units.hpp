@@ -1254,6 +1254,30 @@ namespace units
     }
 
     template<
+    typename P,
+    typename m, 
+    typename l, 
+    typename t, 
+    typename q, 
+    typename temp, 
+    typename intensity, 
+    typename angle,
+    Mass_t M         = Mass_t::Gram,               // Mass unit type
+    Length_t L       = Length_t::Centimeter,       // Length unit type
+    Time_t T         = Time_t::Second,             // Time unit type
+    Charge_t Q       = Charge_t::StatCoulomb,      // Charge unit type
+    Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
+    Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
+    Angle_t A        = Angle_t::Radian>            // Angle unit type
+    const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>
+    operator-(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& lhs,
+              const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& rhs)
+    {
+        quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A> result(lhs);
+        return result -= rhs;
+    }
+
+    template<
     typename P, 
     typename m, 
     typename l, 
@@ -1357,6 +1381,31 @@ namespace units
         return ResultType(lhs.value * rhs.value);
     }
 
+    template<
+    typename P, 
+    typename m1, typename l1, typename t1, typename q1, typename temp1, typename intensity1, typename angle1,
+    typename m2, typename l2, typename t2, typename q2, typename temp2, typename intensity2, typename angle2,
+    Mass_t M         = Mass_t::Gram,               // Mass unit type
+    Length_t L       = Length_t::Centimeter,       // Length unit type
+    Time_t T         = Time_t::Second,             // Time unit type
+    Charge_t Q       = Charge_t::StatCoulomb,      // Charge unit type
+    Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
+    Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
+    Angle_t A        = Angle_t::Radian>            // Angle unit type
+    const auto operator-(const quantity<P, m1, l1, t1, q1, temp1, intensity1, angle1,M, L, T, Q, K, I, A>& lhs,
+              const quantity<P, m2, l2, t2, q2, temp2, intensity2, angle2, M, L, T, Q, K, I, A>& rhs)
+    {
+        typedef quantity<P, 
+        std::ratio_add<m1,m2>, 
+        std::ratio_add<l1,l2>, 
+        std::ratio_add<t1,t2>, 
+        std::ratio_add<q1,q2>, 
+        std::ratio_add<temp1,temp2>,
+        std::ratio_add<intensity1,intensity2>, 
+        std::ratio_add<angle1,angle2>, M, L, T, Q, K, I, A> ResultType;
+        
+        return ResultType(lhs.value * rhs.value);
+    }
     
     template<
     typename P, 

@@ -1417,7 +1417,7 @@ namespace units
         Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
         Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
         Angle_t A        = Angle_t::Radian>            // Angle unit type
-        const auto pow(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& quant)
+        constexpr auto pow(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& quant)
         {
             const P vpower = P(power::num) / power::den;
             return  quantity<P, std::ratio_multiply<m, power>, 
@@ -1446,7 +1446,7 @@ namespace units
         Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
         Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
         Angle_t A        = Angle_t::Radian>            // Angle unit type
-        const auto sqrt(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& val)
+        constexpr auto sqrt(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& val)
         {
             return  quantity<P, std::ratio_divide<m, std::ratio<2>>, 
                                 std::ratio_divide<l, std::ratio<2>>, 
@@ -1494,6 +1494,7 @@ namespace units
     constexpr spectral_flux jy(1);     // Jansky
     constexpr volume        cm3(1);
     constexpr area          cm2(1);
+   
     // // define derived conversion types
     constexpr auto kg    = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, Mass_t::Kilogram>(1);
     constexpr auto mSun  = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, Mass_t::SolarMass>(1);
@@ -1519,6 +1520,8 @@ namespace units
     // angle
     constexpr auto deg = quantity<double, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>,std::ratio<1>, Mass_t::Gram, Length_t::Centimeter, Time_t::Second, Charge_t::StatCoulomb, Temperature_t::Kelvin, Irradiance_t::ErgCM2P2, Angle_t::Degree>(1);
 
+    // magnetic field
+    const auto gauss = math::sqrt(gram) / math::sqrt(cm) / s;
 } // namespace units
 
 #endif

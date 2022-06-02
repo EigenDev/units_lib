@@ -1480,6 +1480,7 @@ namespace units
     using power         = quantity<double, std::ratio<1>, std::ratio<-2>,std::ratio<-3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using volume        = quantity<double, std::ratio<0>, std::ratio<3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using area          = quantity<double, std::ratio<0>, std::ratio<2>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
+    using mag_field     = quantity<double, std::ratio<1,2>, std::ratio<-1,2>, std::ratio<-1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
 
     // define the base in cgs
     constexpr mass          gram(1);   // gram
@@ -1494,7 +1495,8 @@ namespace units
     constexpr spectral_flux jy(1);     // Jansky
     constexpr volume        cm3(1);
     constexpr area          cm2(1);
-   
+    constexpr mag_field     gauss(1);
+
     // // define derived conversion types
     constexpr auto kg    = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, Mass_t::Kilogram>(1);
     constexpr auto mSun  = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, Mass_t::SolarMass>(1);
@@ -1519,9 +1521,6 @@ namespace units
 
     // angle
     constexpr auto deg = quantity<double, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>,std::ratio<1>, Mass_t::Gram, Length_t::Centimeter, Time_t::Second, Charge_t::StatCoulomb, Temperature_t::Kelvin, Irradiance_t::ErgCM2P2, Angle_t::Degree>(1);
-
-    // magnetic field
-    const auto gauss = math::sqrt(gram) / math::sqrt(cm) / s;
 } // namespace units
 
 #endif

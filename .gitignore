@@ -1,8 +1,11 @@
 # Prerequisites
 *.d
 
-units
-.vscode/
+### VisualStudioCode ###
+.vscode/*    
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
 
 # Compiled Object files
 *.slo

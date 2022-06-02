@@ -780,6 +780,18 @@ namespace units
             return *this;
         }
 
+        quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& 
+        operator/(const double rhs)
+        {
+            return quantity<P, m, l, t, q, temp, intensity, angle,  M, L, T, Q, K, I, A>(value / rhs);
+        }
+
+        quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& 
+        operator*(const double rhs)
+        {
+            return quantity<P, m, l, t, q, temp, intensity, angle,  M, L, T, Q, K, I, A>(value * rhs);
+        }
+
         template<
         Mass_t M2         = Mass_t::Gram,               // Mass unit type
         Length_t L2       = Length_t::Centimeter,       // Length unit type
@@ -1323,6 +1335,7 @@ namespace units
         return ResultType(lhs.value * rhs.value);
     }
 
+    
     template<
     typename P, 
     typename m1, typename l1, typename t1, typename q1, typename temp1, typename intensity1, typename angle1,

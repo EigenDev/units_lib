@@ -1476,7 +1476,7 @@ namespace units
     using force         = quantity<double, std::ratio<1>, std::ratio<1>, std::ratio<-2>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using spectral_flux = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<-4>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using total_flux    = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<-3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
-    using power         = quantity<double, std::ratio<1>, std::ratio<-2>,std::ratio<-3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
+    using power         = quantity<double, std::ratio<1>, std::ratio<2>,std::ratio<-3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using volume        = quantity<double, std::ratio<0>, std::ratio<3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using area          = quantity<double, std::ratio<0>, std::ratio<2>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using mag_field     = quantity<double, std::ratio<1,2>, std::ratio<-1,2>, std::ratio<-1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;

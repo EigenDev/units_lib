@@ -36,8 +36,8 @@ int main()
     std::cout << "acceleration: " << a  << "\n";
     std::cout << "velocity in kms:" << nv << "\n";
     std::cout << "acceleration in kms:" << na << "\n";
-    std::cout << "Sqrt of squared acceleratio using sqrt: " << sqrt(a2) << "\n";
-    std::cout << "Sqrt of squared acceleratio using pow: "  <<  units::pow<std::ratio<1,3>>(a2) << "\n";
+    std::cout << "Sqrt of squared acceleratio using sqrt: " << units::math::sqrt(a2) << "\n";
+    std::cout << "Sqrt of squared acceleratio using pow: "  <<  units::math::pow<std::ratio<1,3>>(a2) << "\n";
     
     // Constants testing
     std::cout << std::string(80, '=') << "\n";

@@ -809,7 +809,7 @@ namespace units
             // if constexpr(std::is_integral_v<m>)
             {
                 //=========== Mass types conversions
-                if (powm != 0)
+                if constexpr(m::num != 0)
                 {
                     if (mType == Mass_t::Gram)
                     {
@@ -841,7 +841,7 @@ namespace units
                         }
                     }
                 }
-                if (powl != 0)
+                if constexpr(l::num != 0)
                 {
                     //==========Length type conversion
                     if (lType == Length_t::Centimeter)
@@ -922,7 +922,7 @@ namespace units
                         }
                     }
                 }
-                if (powt != 0)
+                if constexpr(t::num != 0)
                 {
                     //==========Time type conversion
                     if (tType == Time_t::Second)
@@ -977,7 +977,7 @@ namespace units
                     } 
                 }
 
-                if (powk != 0)
+                if constexpr(temp::num != 0)
                 {
                     //==========Temperature type conversion
                     if (tempType == Temperature_t::Kelvin)
@@ -1011,7 +1011,7 @@ namespace units
                     } 
                 }
 
-                if (powq != 0)
+                if constexpr(q::num != 0)
                 {
                     //==========Charge type conversion
                     if (qType == Charge_t::StatCoulomb)
@@ -1024,7 +1024,7 @@ namespace units
                     }
                 }
 
-                if (powa != 0)
+                if constexpr(angle::num != 0)
                 {
                     //==========Charge type conversion
                     if (aType == Angle_t::Radian)

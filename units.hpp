@@ -1484,7 +1484,7 @@ namespace units
     using edens         = quantity<double, std::ratio<1>, std::ratio<-1>, std::ratio<-2>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using mdens         = quantity<double, std::ratio<1>, std::ratio<-3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using ndens         = quantity<double, std::ratio<0>, std::ratio<-3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
-
+    using spec_power    = quantity<double, std::ratio<1>, std::ratio<2>, std::ratio<-4>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     // define the base in cgs
     constexpr mass          gram(1);   // gram
     constexpr length        cm(1);     // centimeter
@@ -1503,7 +1503,8 @@ namespace units
     constexpr mdens         g_per_cm3(1);
     constexpr power         erg_per_s(1);
     constexpr ndens         n_per_cm3(1);
-    
+    constexpr spec_power    erg_per_s2(1);
+
     // // define derived conversion types
     constexpr auto kg    = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, Mass_t::Kilogram>(1);
     constexpr auto mSun  = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, Mass_t::SolarMass>(1);

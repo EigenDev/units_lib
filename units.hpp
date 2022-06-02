@@ -1464,7 +1464,6 @@ namespace units
     using mass          = quantity<double, std::ratio<1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using length        = quantity<double, std::ratio<0>, std::ratio<1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using mytime        = quantity<double, std::ratio<0>, std::ratio<0>, std::ratio<1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
-    using charge        = quantity<double, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<1>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using temp          = quantity<double, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<1>, std::ratio<0>, std::ratio<0>>;
     using intensity     = quantity<double, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<1>, std::ratio<0>>;
     using angle         = quantity<double, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<1>>;
@@ -1481,6 +1480,7 @@ namespace units
     using volume        = quantity<double, std::ratio<0>, std::ratio<3>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using area          = quantity<double, std::ratio<0>, std::ratio<2>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
     using mag_field     = quantity<double, std::ratio<1,2>, std::ratio<-1,2>, std::ratio<-1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
+    using charge        = quantity<double, std::ratio<1,2>, std::ratio<3,2>, std::ratio<-1>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>>;
 
     // define the base in cgs
     constexpr mass          gram(1);   // gram

@@ -1297,7 +1297,7 @@ namespace units
     constexpr frequency     hz(1);                     // Hertz
     constexpr force         dyne(1);                   // dyne
     constexpr spectral_flux jy(1e-23);                 // Jansky
-    constexpr spectral_flux mjy(1e-20);               // millJansky
+    constexpr spectral_flux mjy(1e-26);               // millJansky
     constexpr volume        cm3(1);                    // centimeters cubed
     constexpr area          cm2(1);                    // centimeters squared
     constexpr mag_field     gauss(1);                  // Gauss units

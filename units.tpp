@@ -536,7 +536,7 @@ namespace units
                 (aType == uTransform.aType)
             )
             {
-                return quantity<P, m, l, t, q, temp, intensity, angle, M2, L2, T2, Q2, K2, I2, A2>(uTransform.value * value);
+                return quantity<P, m, l, t, q, temp, intensity, angle, M2, L2, T2, Q2, K2, I2, A2>(value / uTransform.value);
             } 
             
             // if constexpr(std::is_integral_v<m>)
@@ -770,7 +770,7 @@ namespace units
                     }
                 }
 
-                return newQuant(newvalue * uTransform.value);
+                return newQuant(newvalue / uTransform.value);
             }
             }
 

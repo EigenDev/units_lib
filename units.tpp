@@ -121,7 +121,7 @@ namespace units
         public:
         Day(const P initVal) : value(initVal){}
         Day(Year<P> t)   : value(365.0 * t.value) {}
-        Day(Second<P> t) : value(t.value * (1.0 /(24.0 * 60.0))) {}
+        Day(Second<P> t) : value(t.value * (1.0 /(24.0 * 3600.0))) {}
         Day(Hour<P> t)   : value(t.value * (1.0 / 24.0)) {}
         P value;
     };

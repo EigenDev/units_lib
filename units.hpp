@@ -780,17 +780,17 @@ namespace units
             return *this;
         }
 
-        quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& 
-        operator/(const double rhs)
-        {
-            return quantity<P, m, l, t, q, temp, intensity, angle,  M, L, T, Q, K, I, A>(value / rhs);
-        }
+        // quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& 
+        // operator/(const double rhs)
+        // {
+        //     return quantity<P, m, l, t, q, temp, intensity, angle,  M, L, T, Q, K, I, A>(value / rhs);
+        // }
 
-        quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& 
-        operator*(const double rhs)
-        {
-            return quantity<P, m, l, t, q, temp, intensity, angle,  M, L, T, Q, K, I, A>(value * rhs);
-        }
+        // quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& 
+        // operator*(const double rhs)
+        // {
+        //     return quantity<P, m, l, t, q, temp, intensity, angle,  M, L, T, Q, K, I, A>(value * rhs);
+        // }
 
         template<
         Mass_t M2         = Mass_t::Gram,               // Mass unit type

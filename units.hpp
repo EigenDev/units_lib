@@ -243,7 +243,7 @@ namespace units
     struct quantity;
     //=============================================================================================
     template<typename T>
-    std::string rat2str();
+    constexpr std::string rat2str();
 
     //=============================================================================================
     template<
@@ -281,7 +281,7 @@ namespace units
     Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
     Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
     Angle_t A        = Angle_t::Radian>            // Angle unit type
-    const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>
+    constexpr auto
     operator+(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& lhs,
     const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& rhs);
 
@@ -301,7 +301,7 @@ namespace units
     Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
     Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
     Angle_t A        = Angle_t::Radian>            // Angle unit type
-    const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>
+    constexpr auto
     operator-(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& lhs,
               const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& rhs);
 
@@ -321,7 +321,7 @@ namespace units
     Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
     Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
     Angle_t A        = Angle_t::Radian>            // Angle unit type
-    const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>
+    constexpr auto
     operator*(double lhs, const quantity<P, m, l, t,q, temp, intensity, angle, M, L, T, Q, K, I, A>& rhs);
 
     template<
@@ -340,7 +340,7 @@ namespace units
     Temperature_t K = Temperature_t::Kelvin,  // Temperature unit type
     Irradiance_t I = Irradiance_t::ErgCM2P2,  // Luminous Intensity unit type
     Angle_t A = Angle_t::Radian>             // Angle unit type
-    const auto
+    constexpr auto
     operator*(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& lhs, double rhs);
 
     template<
@@ -359,7 +359,7 @@ namespace units
     Temperature_t K = Temperature_t::Kelvin,  // Temperature unit type
     Irradiance_t I = Irradiance_t::ErgCM2P2,  // Luminous Intensity unit type
     Angle_t A = Angle_t::Radian>             // Angle unit type
-    const auto
+    constexpr auto
     operator/(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& lhs, double rhs);
 
     template<
@@ -373,16 +373,7 @@ namespace units
     Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
     Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
     Angle_t A        = Angle_t::Radian>            // Angle unit type
-    quantity<P, 
-    std::ratio_add<m1,m2>,
-    std::ratio_add<l1,l2>,
-    std::ratio_add<t1,t2>, 
-    std::ratio_add<q1,q2>,
-    std::ratio_add<temp1,temp2>, 
-    std::ratio_add<intensity1,intensity2>, 
-    std::ratio_add<angle1,angle2>, 
-    M, L, T, Q, K, I, A> 
-    operator*(const quantity<P, m1, l1, t1, q1, temp1, intensity1, angle1,M, L, T, Q, K, I, A>& lhs,
+    constexpr auto operator*(const quantity<P, m1, l1, t1, q1, temp1, intensity1, angle1,M, L, T, Q, K, I, A>& lhs,
               const quantity<P, m2, l2, t2, q2, temp2, intensity2, angle2, M, L, T, Q, K, I, A>& rhs);
 
     template<
@@ -410,16 +401,7 @@ namespace units
     Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
     Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
     Angle_t A        = Angle_t::Radian>            // Angle unit type
-    quantity<P, 
-    std::ratio_subtract<m1,m2>,
-    std::ratio_subtract<l1,l2>,
-    std::ratio_subtract<t1,t2>, 
-    std::ratio_subtract<q1,q2>,
-    std::ratio_subtract<temp1,temp2>, 
-    std::ratio_subtract<intensity1,intensity2>, 
-    std::ratio_subtract<angle1,angle2>, 
-    M, L, T, Q, K, I, A>
-    operator/(const quantity<P, m1, l1, t1, q1, temp1, intensity1, angle1, M, L, T, Q, K, I, A>& lhs,
+    constexpr auto operator/(const quantity<P, m1, l1, t1, q1, temp1, intensity1, angle1, M, L, T, Q, K, I, A>& lhs,
               const quantity<P, m2, l2, t2, q2, temp2, intensity2, angle2, M, L, T, Q, K, I, A>& rhs);
 
     template<
@@ -430,7 +412,7 @@ namespace units
     Time_t T1, Time_t T2, Charge_t Q1,Charge_t Q2,       
     Temperature_t K1, Temperature_t K2, Irradiance_t I1, Irradiance_t I2,
     Angle_t A1, Angle_t A2>              
-    const auto operator/(const quantity<P, m1, l1, t1, q1, temp1, intensity1, angle1, M1, L1, T1, Q1, K1, I1, A1>& lhs,
+    constexpr auto operator/(const quantity<P, m1, l1, t1, q1, temp1, intensity1, angle1, M1, L1, T1, Q1, K1, I1, A1>& lhs,
                          const quantity<P, m2, l2, t2, q2, temp2, intensity2, angle2, M2, L2, T2, Q2, K2, I2, A2>& rhs);
 
     // Special case for dimensionless type 

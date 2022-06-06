@@ -1167,9 +1167,9 @@ namespace units
     // // Special case for dimensionless type 
     template<typename P>
     struct quantity<P, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>> {
-        quantity(P initVal = 0): value(initVal) {}        // allow implicit conversion
+        constexpr quantity(P initVal = 0): value(initVal) {}        // allow implicit conversion
         constexpr operator P() const { return value; }    // to/from values of type P
-        quantity& operator=(P newVal)                     // allow assignments from
+        constexpr quantity& operator=(P newVal)                     // allow assignments from
         { value = newVal; return *this; }                 // values of type T
         P value;
     };

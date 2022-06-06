@@ -1,11 +1,12 @@
-/*
-A units library that will help in 
-performing type-safe physics operations
-while taking advantage of the 
-speedups of c++
-
-Author: Marcus DuPont
-Adapted from:Scott Meyers, Ph.D.
+/**
+    A units library that will help in 
+    performing type-safe physics operations
+    while taking advantage of the 
+    speedups of c++
+    @file units.hpp
+    @author Marcus DuPont
+    @version 0.1 05/10/22
+    Adapted from:Scott Meyers, Ph.D.
 */
 #ifndef UNITS_HPP
 #define UNITS_HPP

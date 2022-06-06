@@ -1,4 +1,10 @@
-
+/**
+    UNITS is a library built to maintain some dimensional-type safety to 
+    physcs calculation
+    @file units.tpp
+    @author Marcus DuPont
+    @version 0.1 05/10/22
+*/
 namespace units
 {
     template <typename T>

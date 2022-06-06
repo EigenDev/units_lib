@@ -283,6 +283,46 @@ namespace units
     Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
     Angle_t A        = Angle_t::Radian>            // Angle unit type
     constexpr auto
+    operator<(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& lhs,
+              const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& rhs);
+    
+    template<
+    typename P,
+    typename m, 
+    typename l, 
+    typename t, 
+    typename q, 
+    typename temp, 
+    typename intensity, 
+    typename angle,
+    Mass_t M         = Mass_t::Gram,               // Mass unit type
+    Length_t L       = Length_t::Centimeter,       // Length unit type
+    Time_t T         = Time_t::Second,             // Time unit type
+    Charge_t Q       = Charge_t::StatCoulomb,      // Charge unit type
+    Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
+    Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
+    Angle_t A        = Angle_t::Radian>            // Angle unit type
+    constexpr auto
+    operator>(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& lhs,
+              const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& rhs);
+
+    template<
+    typename P,
+    typename m, 
+    typename l, 
+    typename t, 
+    typename q, 
+    typename temp, 
+    typename intensity, 
+    typename angle,
+    Mass_t M         = Mass_t::Gram,               // Mass unit type
+    Length_t L       = Length_t::Centimeter,       // Length unit type
+    Time_t T         = Time_t::Second,             // Time unit type
+    Charge_t Q       = Charge_t::StatCoulomb,      // Charge unit type
+    Temperature_t K  = Temperature_t::Kelvin,      // Temperature unit type
+    Irradiance_t I   = Irradiance_t::ErgCM2P2,     // Luminous Intensity unit type
+    Angle_t A        = Angle_t::Radian>            // Angle unit type
+    constexpr auto
     operator+(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& lhs,
     const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& rhs);
 

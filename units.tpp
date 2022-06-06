@@ -959,6 +959,52 @@ namespace units
     typename temp, 
     typename intensity, 
     typename angle,
+    Mass_t M         ,      // Mass unit type
+    Length_t L       ,      // Length unit type
+    Time_t T         ,      // Time unit type
+    Charge_t Q       ,      // Charge unit type
+    Temperature_t K  ,      // Temperature unit type
+    Irradiance_t I   ,      // Luminous Intensity unit type
+    Angle_t A>             // Angle unit type
+    constexpr auto
+    operator<(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& lhs,
+              const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& rhs)
+    {
+        return lhs.value < rhs.value;
+    }
+    
+    template<
+    typename P,
+    typename m, 
+    typename l, 
+    typename t, 
+    typename q, 
+    typename temp, 
+    typename intensity, 
+    typename angle,
+    Mass_t M         ,    // Mass unit type
+    Length_t L       ,    // Length unit type
+    Time_t T         ,    // Time unit type
+    Charge_t Q       ,    // Charge unit type
+    Temperature_t K  ,    // Temperature unit type
+    Irradiance_t I   ,    // Luminous Intensity unit type
+    Angle_t A>            // Angle unit type
+    constexpr auto
+    operator>(const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& lhs,
+              const quantity<P, m, l, t, q, temp, intensity, angle, M, L, T, Q, K, I, A>& rhs)
+    {
+        return lhs.value > rhs.value;
+    }
+
+    template<
+    typename P,
+    typename m, 
+    typename l, 
+    typename t, 
+    typename q, 
+    typename temp, 
+    typename intensity, 
+    typename angle,
     Mass_t M         ,               // Mass unit type
     Length_t L       ,       // Length unit type
     Time_t T         ,             // Time unit type

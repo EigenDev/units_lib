@@ -7,38 +7,37 @@ using std::sqrt;
 
 int main()
 {
-    const auto mass  = 1.0 * units::gram;
-    const auto dt    = 0.1 * units::s;
-    const auto ell   = 1.0 * units::cm;
-
-    const auto v = ell / dt;
-    const auto a = v   / dt;
-
-    const auto gram   = 2e33 * units::gram;
-    const auto kilog  = gram.to(units::kg);
-    const auto solar  = gram.to(units::mSun);
-    const auto solarg = solar.to(units::gram);
-    const auto solark = solar.to(units::kg);
+    const auto sunInGrams  = 1.989e33 * units::gram;
+    const auto sunInKiloG  = sunInGrams.to(units::kg);
+    const auto sunInMsun   = sunInKiloG.to(units::mSun);
     
-    std::cout << "Sun's mass in grams:" << gram << "\n";
-    std::cout << "Sun's mass in kilograms:" << kilog << "\n";
-    std::cout << "Sun's mass in SolarMass:" << solar << "\n";
+    std::cout << "Sun's mass in grams:"     << sunInGrams << "\n";
+    std::cout << "Sun's mass in kilograms:" << sunInKiloG << "\n";
+    std::cout << "Sun's mass in SolarMass:" << sunInMsun << "\n";
     std::cout << std::string(80, '=') << "\n";
-    std::cout << " mass:" << solar << "\n";
-    std::cout << "new mass:"   << solarg << "\n";
-    std::cout << "new mass:"   << solark << "\n";
 
-    const auto a2 = a * a;
-    const auto nv = v.to(units::km / units::s);
-    const auto na = a.to(units::km / units::s / units::s);
+    const auto someMass  = 1.0 * units::gram;
+    const auto dt        = 0.1 * units::s;
+    const auto ell       = 1.0 * units::cm;
+
+    const auto v = ell / dt; // velocity in cgs
+    const auto a = v   / dt; // acceleration in cgs
+    const auto a2 = a * a;   // square of the acceleration 
+
+    const auto vmks = v.to(units::km / units::s);             // velocity in mks
+    const auto amks = a.to(units::km / units::s / units::s);  // acceleration in mks
     std::cout << std::string(80, '=') << "\n";
     std::cout << "velocity in cgs: " << v  << "\n";
     std::cout << "acceleration: " << a  << "\n";
-    std::cout << "velocity in kms:" << nv << "\n";
-    std::cout << "acceleration in kms:" << na << "\n";
-    std::cout << "Sqrt of squared acceleratio using sqrt: " << units::math::sqrt(a2) << "\n";
-    std::cout << "Sqrt of squared acceleratio using pow: "  <<  units::math::pow<std::ratio<1,3>>(a2) << "\n";
+    std::cout << "velocity in kms:" << vmks << "\n";
+    std::cout << "acceleration in kms:" << amks << "\n";
+    std::cout << "Sqrt of squared acceleration using sqrt: " << units::math::sqrt(a2) << "\n";
+    std::cout << "Sqrt of squared acceleration using pow: "  <<  units::math::pow<std::ratio<1,2>>(a2) << "\n";
     
+    // spectral flux test 
+    const auto cgsFlux = 1e-26 * units::erg / units::s / units::cm2 / units::hz;
+    const auto spec    = cgsFlux.to(units::mjy);
+    std::cout << "flux in mJy: " << spec << "\n";
     // Constants testing
     std::cout << std::string(80, '=') << "\n";
     std::cout << "Physical constants" << "\n";

@@ -45,7 +45,7 @@ namespace units
         public:
         SolarMass(const P initVal) : value(initVal){}
         SolarMass(Gram<P> m) : value(5.02785e-34 * m.value) {}
-        SolarMass(Kilogram<P> m)  : value(15.02785e-31* m.value) {}
+        SolarMass(Kilogram<P> m)  : value(5.0279e-31 * m.value) {}
         P value;
     };
 

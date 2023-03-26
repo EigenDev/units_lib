@@ -1,6 +1,6 @@
 #include <iostream>
-#include "units.hpp"
-#include "constants.hpp"
+#include "lib/units.hpp"
+#include "lib/constants.hpp"
 
 using std::pow;
 using std::sqrt;

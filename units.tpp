@@ -481,11 +481,11 @@ namespace units
         radType(I),
         aType(A),
         powm(m::num / m::den),
-        powt(t::num / t::den),
         powl(l::num / l::den),
+        powt(t::num / t::den),
         powq(q::num / q::den),
-        powi(intensity::num / intensity::den),
         powk(temp::num / temp::den),
+        powi(intensity::num / intensity::den),
         powa(angle::num / angle::den)
         {
         }
@@ -786,11 +786,11 @@ namespace units
         // Unit types
         Mass_t mType;
         Length_t lType;
-        Angle_t aType;
-        Temperature_t tempType;
         Time_t tType;
-        Irradiance_t radType;
         Charge_t qType;
+        Temperature_t tempType;
+        Irradiance_t radType;
+        Angle_t aType;
 
         // power values as floats
         double powm, powl, powt, powq, powk, powi, powa;
